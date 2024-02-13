@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 2.8.9)
 
 set(CMAKE_SUPPRESS_REGENERATION true) 
 SET (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SAFESEH:NO")
@@ -8,10 +8,10 @@ SET (CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} /SAFESEH:NO")
 #------------------------------------------------------
 #	Create new project
 #------------------------------------------------------
-project (Inquience)
+project (QuantumSpark)
 
 # Get Headers
-file (GLOB ENGINE_HEADERS "core/*.h" "core/components/*.h" "core/graphics/*h" "core/math/*.h")
+file (GLOB ENGINE_HEADERS "engine/*.h" "engine/components/*.h" "engine/graphics/*h" "engine/math/*.h")
 
 #------------------------------------------------------
 #	Include directories
@@ -21,7 +21,7 @@ include_directories(
 	${CMAKE_SOURCE_DIR}/thirdparty/glew/include
 	${CMAKE_SOURCE_DIR}/thirdparty/freetype/include
 	${CMAKE_SOURCE_DIR}/thirdparty/freetype/win32
-	${CMAKE_SOURCE_DIR}/core
+	${CMAKE_SOURCE_DIR}/engine
 )
 
 link_directories (
@@ -41,21 +41,22 @@ set ( ALL_LIBS
 )
 
 #------------------------------------------------------
-#	Add Core as library
+#	Add engine as library
 #------------------------------------------------------
 add_library(Engine
 	engine/core.cpp
 	engine/core.h
+	engine/debug.h
+	engine/debug.cpp
+	engine/utilities.h
 	
 	engine/components/component.cpp
 	engine/components/component.h
 	
 	engine/graphics/renderer.cpp
 	engine/graphics/renderer.h
-	
-	engine/math/math.cpp
+
 	engine/math/math.h
-	engine/math/vector.cpp
 	engine/math/vector.h
 )
 
@@ -77,11 +78,11 @@ add_custom_command(TARGET Engine POST_BUILD
 					
 add_custom_command(TARGET Engine POST_BUILD 
 					COMMAND ${CMAKE_COMMAND} -E copy
-						${CMAKE_SOURCE_DIR}/thirdparty/glfw/lib-vc2015/glfw3.dll $<TARGET_FILE_DIR:Engine>)
+						${CMAKE_SOURCE_DIR}/thirdparty/glfw/lib-vc2022/glfw3.dll $<TARGET_FILE_DIR:Engine>)
 
 add_custom_command(TARGET Engine POST_BUILD 
 					COMMAND ${CMAKE_COMMAND} -E copy
-						${CMAKE_SOURCE_DIR}/thirdparty/glew/bin/Win32/glew32.dll $<TARGET_FILE_DIR:Engine>)
+						${CMAKE_SOURCE_DIR}/thirdparty/glew/bin/Release/Win32/glew32.dll $<TARGET_FILE_DIR:Engine>)
 
 add_custom_command(TARGET Engine POST_BUILD 
 					COMMAND ${CMAKE_COMMAND} -E copy
