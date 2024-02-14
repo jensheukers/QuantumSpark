@@ -1,0 +1,9 @@
+#ifndef QUANTUMSPARK_UTILITIES_H
+#define QUATNUMSPARK_UTITLIES_H
+
+class Utilities {
+
+
+};
+
+#endif // !QUANTUMSPARK_UTILITIES_H

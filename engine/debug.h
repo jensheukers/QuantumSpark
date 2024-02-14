@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 
+class vector3; // fwd declare
+
 class Debug {
 private:
 	static Debug* m_oInstance;
@@ -17,6 +19,8 @@ public:
 
 	static void Print(const char* pString);
 	static void Print(std::string pString);
+	static void Print(float pFloat);
+	static void Print(const vector3 pVector);
 };
 
 

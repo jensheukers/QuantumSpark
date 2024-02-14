@@ -6,9 +6,18 @@
  *
  **/
 #include <core.h>
+#include <debug.h>
+
+#include "math/vector3.h"
 
 int main(int argc, char* argv[]) {
+	vector3 vector = vector3(10, 0, 0);
+	vector = vector + 2;
+
+	Debug::Print(vector);
+	
 	Core* core = new Core();
+	core->GetRenderer()->CreateWindow(1080, 720, "QuantumSpark");
 
 	while (!core->ShouldQuit()) {
 		core->Update();

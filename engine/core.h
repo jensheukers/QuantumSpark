@@ -14,6 +14,9 @@ private:
 
 	Renderer* m_oRenderer;
 public:
+	//Getters
+	Renderer* GetRenderer() { return m_oRenderer;  }
+
 	Core();
 	~Core();
 

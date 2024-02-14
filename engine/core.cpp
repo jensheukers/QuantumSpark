@@ -23,5 +23,15 @@ Core::~Core() {
 }
 
 void Core::Update() {
+	if (!m_oRenderer)
+		return;
+
+	m_oRenderer->Draw();
+
+	if (m_oRenderer->ShouldClose())
+		m_bShouldQuit = true;
+
+	float deltaTime = m_oRenderer->GetDeltaTime();
+
 
 }

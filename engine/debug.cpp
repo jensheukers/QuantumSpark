@@ -4,6 +4,7 @@
  *
  **/
 #include "debug.h"
+#include "math/vector3.h"
 
 Debug* Debug::m_oInstance;
 
@@ -20,4 +21,12 @@ void Debug::Print(const char* pString) {
 
 void Debug::Print(std::string pString) {
 	Print(pString.c_str());
+}
+
+void Debug::Print(float pFloat) {
+	Print(std::to_string(pFloat));
+}
+
+void Debug::Print(const vector3 pVector) {
+	Print(std::to_string(pVector.x) + "," + std::to_string(pVector.y) + "," + std::to_string(pVector.z).c_str());
 }

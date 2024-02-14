@@ -48,6 +48,13 @@ add_library(Engine
 	engine/core.h
 	engine/debug.h
 	engine/debug.cpp
+	engine/entity.h
+	engine/entity.cpp
+	engine/scene.h
+	engine/scene.cpp
+	engine/scenemanager.h
+	engine/scenemanager.cpp
+	
 	engine/utilities.h
 	
 	engine/components/component.cpp
@@ -57,7 +64,7 @@ add_library(Engine
 	engine/graphics/renderer.h
 
 	engine/math/math.h
-	engine/math/vector.h
+	engine/math/vector3.h
 )
 
 add_custom_command(TARGET Engine POST_BUILD 
