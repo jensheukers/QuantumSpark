@@ -54,6 +54,7 @@ add_library(Engine
 	engine/scene.cpp
 	engine/scenemanager.h
 	engine/scenemanager.cpp
+	engine/managed.h
 	
 	engine/utilities.h
 	

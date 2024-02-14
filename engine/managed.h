@@ -1,0 +1,8 @@
+#ifndef QUANTUMSPARK_MANAGED_H
+#define QUANTUMSPARK_MANAGED_H
+
+class Managed {
+
+};
+
+#endif // !QUANTUMSPARK_MANAGED_H

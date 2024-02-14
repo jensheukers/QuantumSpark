@@ -7,6 +7,7 @@
  **/
 #include <core.h>
 #include <debug.h>
+#include <entity.h>
 
 #include "math/vector3.h"
 
@@ -16,6 +17,10 @@ int main(int argc, char* argv[]) {
 
 	Debug::Print(vector);
 	
+	Entity* entity = new Entity();
+	Component* component = new Component();
+	entity->AddComponent(component);
+
 	Core* core = new Core();
 	core->GetRenderer()->CreateWindow(1080, 720, "QuantumSpark");
 
